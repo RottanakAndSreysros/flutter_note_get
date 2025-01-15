@@ -28,3 +28,5 @@ class TextNoteModel extends GetxController {
         description = RxString(map['description']),
         date = RxString(map['date_time']);
 }
+
+List<TextNoteModel> listModel = <TextNoteModel>[].obs;

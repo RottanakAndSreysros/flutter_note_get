@@ -29,7 +29,6 @@ android {
         versionCode = flutter.versionCode
         versionName = flutter.versionName
     }
-
     buildTypes {
         release {
             // TODO: Add your own signing config for the release build.
@@ -42,3 +41,10 @@ android {
 flutter {
     source = "../.."
 }
+dependencies {
+    implementation 'com.google.android.material:material:1.12.0'  // Ensure this line is correct and has a valid version
+}
+
+
+
+// keytool -genkeypair -v -keystore D:/Programming/My_Project/My_flutter_project/flutter_note_get/android/app/my-keystore-of-nak-flutter-note-get.jks -keyalg RSA -keysize 2048 -vilidity 10000 -alias my-keyalias-of-nak-flutter-note-get

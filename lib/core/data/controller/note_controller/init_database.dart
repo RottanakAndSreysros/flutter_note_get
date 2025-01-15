@@ -10,7 +10,7 @@ class InitDatabase extends GetxController {
   Future<Database> initDatabase() async {
     try {
       Directory directory = await getApplicationDocumentsDirectory();
-      String path = "${directory.path}/database.db";
+      String path = "${directory.path}/database1.db";
 
       return await openDatabase(
         path,

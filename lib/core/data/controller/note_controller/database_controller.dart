@@ -1,4 +1,4 @@
-import 'package:flutter_note_get/core/data/controller/init_database.dart';
+import 'package:flutter_note_get/core/data/controller/note_controller/init_database.dart';
 import 'package:flutter_note_get/core/data/model/text_note_model.dart';
 import 'package:get/get.dart';
 

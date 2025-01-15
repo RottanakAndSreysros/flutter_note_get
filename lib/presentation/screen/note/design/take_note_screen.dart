@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_note_get/core/data/controller/database_controller.dart';
+import 'package:flutter_note_get/core/data/controller/note_controller/database_controller.dart';
 import 'package:flutter_note_get/core/data/model/text_note_model.dart';
-import 'package:flutter_note_get/presentation/screen/home/home_screen.dart';
+import 'package:flutter_note_get/presentation/screen/landing_screen.dart';
+import 'package:flutter_note_get/presentation/widget/snackbar_widget.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
@@ -20,7 +21,7 @@ class TakeNoteScreen extends StatelessWidget {
         backgroundColor: Colors.purple,
         leading: IconButton(
           onPressed: () {
-            Get.off(HomeScreen());
+            Get.off(LandingScreen());
           },
           icon: const Icon(
             Icons.arrow_back,
@@ -62,14 +63,10 @@ class TakeNoteScreen extends StatelessWidget {
                 )
                     .then(
                   (value) {
-                    return Get.snackbar(
-                      icon: Padding(
-                        padding: const EdgeInsets.all(5),
-                        child: Image.asset("asset/animation/notebook.gif"),
-                      ),
-                      duration: const Duration(milliseconds: 1700),
-                      "Success",
-                      "Your note has been updated successfully.",
+                    return snackbarWidget(
+                      image: "assets/animation/document.gif",
+                      title: "Successful!",
+                      subtitle: "Your note has been updated successfully.",
                     );
                   },
                 );
@@ -84,23 +81,39 @@ class TakeNoteScreen extends StatelessWidget {
                 )
                     .then(
                   (value) {
-                    return Get.snackbar(
-                      icon: Padding(
-                        padding: const EdgeInsets.all(5),
-                        child: Image.asset("asset/animation/notebook.gif"),
-                      ),
-                      duration: const Duration(milliseconds: 1700),
-                      "Success",
-                      "Your note has been saved successfully.",
+                    return snackbarWidget(
+                      image: "assets/animation/document.gif",
+                      title: "Successful!",
+                      subtitle: "Your note has been saved successfully.",
                     );
                   },
                 );
               }
+              listModel = await controller.getAllData();
             },
-            icon: const Icon(
-              Icons.save,
-              color: Colors.white,
-              size: 32,
+            icon: Container(
+              height: 60,
+              width: 40,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10),
+                color: Colors.blue,
+              ),
+              child: const Column(
+                children: [
+                  Icon(
+                    Icons.save,
+                    color: Colors.white,
+                    size: 20,
+                  ),
+                  Text(
+                    "Save",
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 14,
+                    ),
+                  ),
+                ],
+              ),
             ),
           )
         ],
@@ -125,7 +138,8 @@ class TakeNoteScreen extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      hintText: "Title",
+                      hintText: "ចំណងជើង/Title",
+                      hintStyle: TextStyle(color: Colors.grey[500]),
                     ),
                     maxLines: 3,
                   ),
@@ -138,9 +152,11 @@ class TakeNoteScreen extends StatelessWidget {
                       border: OutlineInputBorder(
                         borderRadius: BorderRadius.circular(10),
                       ),
-                      hintText: "Description",
+                      hintText:
+                          "កត់ចំណាំអ្វីដែលអ្នកបានរៀន​ បានអាន​ ឬអ្វីផ្សេងទៀតនៅទីនេះ ព្រោះវាផ្ដល់ភាពងាយស្រួលដល់អ្នកក្នុងការដឹងពីអ្វីដែលអ្នកបានធ្វើ និងត្រូវការធ្វើបន្ត។/Discription",
+                      hintStyle: TextStyle(color: Colors.grey[500]),
                     ),
-                    maxLines: 26,
+                    maxLines: 20,
                   ),
                 ),
               ],

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_note_get/core/data/model/text_note_model.dart';
-import 'package:flutter_note_get/presentation/screen/home/home_screen.dart';
+import 'package:flutter_note_get/presentation/screen/landing_screen.dart';
 import 'package:get/get.dart';
 
 // ignore: must_be_immutable
@@ -15,7 +15,7 @@ class DetailScreen extends StatelessWidget {
         backgroundColor: Colors.purple,
         leading: IconButton(
           onPressed: () {
-            Get.off(HomeScreen());
+            Get.off(LandingScreen());
           },
           icon: const Icon(
             Icons.arrow_back,
@@ -42,12 +42,12 @@ class DetailScreen extends StatelessWidget {
                 mode.title.value,
                 style: const TextStyle(
                   fontSize: 22,
-                  fontWeight: FontWeight.w700,
+                  fontWeight: FontWeight.w400,
                 ),
               ),
               const SizedBox(height: 10),
               SizedBox(
-                height: 710,
+                height: 600,
                 width: double.infinity,
                 child: SingleChildScrollView(
                   scrollDirection: Axis.vertical,
@@ -57,6 +57,7 @@ class DetailScreen extends StatelessWidget {
                       fontSize: 18,
                       fontWeight: FontWeight.w500,
                     ),
+                    overflow: TextOverflow.ellipsis,
                     //maxLines: 28,
                   ),
                 ),

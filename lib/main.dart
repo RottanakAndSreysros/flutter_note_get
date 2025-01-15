@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_note_get/presentation/screen/home/home_screen.dart';
+import 'package:flutter_note_get/presentation/screen/landing_screen.dart';
 import 'package:get/get.dart';
 
 void main(List<String> args) {
@@ -18,7 +18,7 @@ class _MyAppState extends State<MyApp> {
   Widget build(BuildContext context) {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: HomeScreen(),
+      home: LandingScreen(),
     );
   }
 }
